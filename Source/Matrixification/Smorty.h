@@ -48,9 +48,11 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-protected:
+public:
 	UPROPERTY(EditAnywhere, Category="Damage", BlueprintReadWrite)
 		float health;
+	UPROPERTY(EditAnywhere, Category = "Damage", BlueprintReadWrite)
+		float Max_health;
 
 public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
@@ -65,6 +67,12 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		bool f_weapon;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite);
+		bool isHolding;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite);
+		AActor * held_item;
+
 protected:
 
 	void OnFire();
@@ -77,7 +85,7 @@ protected:
 
 	void LookUpAtRate(float Rate);
 
-	void ToggleWeapon();
+	void PickUp();
 
 public:
 	USkeletalMeshComponent* GetMesh() const{ return Mesh_; }

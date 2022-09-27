@@ -13,5 +13,6 @@ AMatrixificationGameMode::AMatrixificationGameMode()
 	DefaultPawnClass = PlayerPawnClassFinder.Class;
 
 	// use our custom HUD class
-	HUDClass = AMatrixificationHUD::StaticClass();
+	static ConstructorHelpers::FObjectFinder<UClass> test(TEXT("/Game/Blueprints/FPS_HUD.FPS_HUD_C"));
+	HUDClass = test.Object;
 }

@@ -43,6 +43,8 @@ ASmorty::ASmorty()
 	Mesh_->SetRelativeRotation(FRotator(0.0f, 0.0f, 0.0f));
 	Mesh_->SetRelativeLocation(FVector(-0.5f, -4.4f, -155.7f));// change @paawan
 
+	isHolding = false;
+	held_item = NULL;
 	/*
 	//gun mesh component
 	
@@ -96,8 +98,8 @@ void ASmorty::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
 	PlayerInputComponent->BindAxis("LookUpRate", this, &ASmorty::LookUpAtRate);
 
-	//toggle weapon
-	PlayerInputComponent->BindAction("Toggle", IE_Pressed, this, &ASmorty::ToggleWeapon);
+
+	PlayerInputComponent->BindAction("pick", IE_Pressed,this, &ASmorty::PickUp);
 
 }
 
@@ -131,15 +133,9 @@ void ASmorty::LookUpAtRate(float Rate)
 	AddControllerPitchInput(Rate * BaseLookUpRate * GetWorld()->GetDeltaSeconds());
 }
 
-void ASmorty::ToggleWeapon()
+void ASmorty::PickUp()
 {
-	if (!f_weapon)
-	{
-		;
-	}
-	else
-	{
-		;
-	}
+	;
 }
+
 
